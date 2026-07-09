@@ -1,0 +1,33 @@
+version : "3.9"
+
+services:
+  app:
+    build: . 
+    container_name: taskflow_app
+    ports: 
+      - "3001:3000"
+    environment:
+      DB_HOST: db
+      DB_NAME: taskflow
+      DB_USER:  postgres
+      DB_PASSWORD: 1234
+      DB_PORT: 5432
+    depends_on:
+      - db
+    restart : unless-stopped
+  db: 
+    image: postgres:15-alpine
+    container_name: taskflow_db
+    environment : 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: taskflow
+    ports:
+     - 5433:5432
+    volumes : 
+     - postgres_data:/var/lib/postgresql/data 
+volumes : 
+  postgres_data: 
+
+
+
