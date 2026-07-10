@@ -15,11 +15,7 @@ app.get("/", (req, res) => {
 // GET All Tasks
 app.get("/tasks", async (req, res) => {
     try {
-        console.log({
-            host: process.env.DB_HOST,
-            port: process.env.DB_PORT,
-            database: process.env.DB_NAME
-        });
+        console.log("hello")
         const result1 = await pool.query("SELECT current_database()");
         console.log(result1.rows);
         const result = await pool.query("SELECT * FROM tasks ORDER BY id");
