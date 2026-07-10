@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 // GET All Tasks
 app.get("/tasks", async (req, res) => {
     try {
-        console.log("hello")
+        console.log("hello1")
         const result1 = await pool.query("SELECT current_database()");
         console.log(result1.rows);
         const result = await pool.query("SELECT * FROM tasks ORDER BY id");
