@@ -221,19 +221,6 @@ This project helped me understand:
 
 ---
 
-# Screenshots (Optional)
-
-Add screenshots of:
-
-* Application Home Page
-* GitHub Actions Success
-* Docker Containers
-* AWS EC2 Dashboard
-* Amazon RDS Dashboard
-* pgAdmin Connected to RDS
-
----
-
 # Author
 
 **Jignesh Solanki**
