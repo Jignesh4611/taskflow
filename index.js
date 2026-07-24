@@ -1,11 +1,12 @@
+const client = require("./metrics");
 require("dotenv").config();
-
 const express = require("express");
 const pool = require("./db");
 
 const app = express();
 
 app.use(express.json());
+
 
 // Home Route
 app.get("/", (req, res) => {
@@ -212,6 +213,10 @@ app.delete("/tasks/:id", async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", client.register.contentType);
+  res.end(await client.register.metrics());
 });
 
 app.listen(3000, "0.0.0.0", () => {
